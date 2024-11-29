@@ -1,6 +1,9 @@
 <script setup>
   // Import navigation component
   import Navigation from './components/Navigation.vue'
+
+  // Import router
+  import { RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -10,23 +13,10 @@
     <el-header>
       <!-- Start Navigation -->
       <Navigation />
-      <!-- End Navigation -->
-
-      <!-- Start Header Video -->
-      <div class="header-video">
-        <video autoplay loop muted>
-          <source src="./assets/video-header-swear.mp4" type="video/mp4">
-        </video>
-      </div>
-      <!-- End Header Video -->
+      <RouterView />
     </el-header>
-    <!-- End Header -->
 
-    <!-- Start Main -->
-    <el-main>
-
-    </el-main>
-    <!-- End Main -->
+    
 
     <!-- Start Footer -->
     <el-footer>
@@ -37,17 +27,10 @@
 </template>
 
 <style lang="scss" scoped>
-
-  el-header {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    .header-video {
-
-      video {
-        width: 100%;
-      }
-    }
-
+  video {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 </style>

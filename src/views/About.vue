@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <h1>Orders</h1>
+  <h1>About</h1>
 </template>
 
 <style lang="scss" scoped>

@@ -1,3 +1,6 @@
 // Import element plus styles
 @use './element-variable.scss' as *;
 
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
