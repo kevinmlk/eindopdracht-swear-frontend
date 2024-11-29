@@ -27,9 +27,27 @@
 
     </el-main>
     <!-- End Main -->
+
+    <!-- Start Footer -->
+    <el-footer>
+
+    </el-footer>
+    <!-- End Footer -->
   </el-container>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 
+  el-header {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .header-video {
+
+      video {
+        width: 100%;
+      }
+    }
+
+  }
 </style>

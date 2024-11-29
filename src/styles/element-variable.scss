@@ -1,0 +1,4 @@
+// Modify the default font
+@use "element-plus/theme-chalk/src/common/var.scss" as *;
+
+$--font-family: 'Helvetica','Arial', sans-serif;
