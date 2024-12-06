@@ -30,7 +30,7 @@
     </el-menu-item>
 
     <el-menu-item index="2">
-      <router-link to="/orders">
+      <router-link to="/register">
       <el-icon style="vertical-align: middle">
         <User />
       </el-icon>
