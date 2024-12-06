@@ -10,7 +10,6 @@
     <el-header>
       <!-- Start Navigation -->
       <Navigation />
-      <RouterView />
     </el-header>
 
     
