@@ -1,9 +1,6 @@
 <script setup>
   // Import navigation component
   import Navigation from './components/Navigation.vue'
-
-  // Import router
-  import { RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -27,10 +24,5 @@
 </template>
 
 <style lang="scss" scoped>
-  video {
-    width: 100%;
-    height: 700px;
-    object-fit: cover;
-    object-position: 50% 50%;
-  }
+
 </style>
