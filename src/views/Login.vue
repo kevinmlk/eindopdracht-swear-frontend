@@ -1,44 +1,49 @@
 <script setup>
   import { reactive, ref } from 'vue';
+  import { useRouter } from 'vue-router';
 
-const ruleFormRef = ref(null);
+  const router = useRouter();
 
-const ruleForm = reactive({
-  username: '',
-  password: '',
-});
+  const ruleFormRef = ref(null);
 
-const submitForm = async (formEl) => {
-  if (!formEl) return;
-  formEl.validate(async (valid) => {
-    if (valid) {
-      try {
-        const response = await fetch('http://localhost:3000/api/v1/users/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(ruleForm),
-        });
-
-        console.log(ruleForm);
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        console.log('Form submitted successfully:', data);
-        // Reset form after successful submission
-        resetForm(formEl);
-      } catch (error) {
-        console.error('Error submitting the form:', error);
-      }
-    } else {
-      console.log('Error submitting the form!');
-    }
+  const ruleForm = reactive({
+    username: '',
+    password: '',
   });
-};
+
+  const submitForm = async (formEl) => {
+    if (!formEl) return;
+    formEl.validate(async (valid) => {
+      if (valid) {
+        try {
+          const response = await fetch('http://localhost:3000/api/v1/users/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(ruleForm),
+          });
+
+          console.log(ruleForm);
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const data = await response.json();
+          console.log('Form submitted successfully:', data);
+          // Go to the account page and store the token after successful login
+          let token = data.data.token;
+          localStorage.setItem("token", token);
+          router.push({ name: 'Account' });
+        } catch (error) {
+          console.error('Error submitting the form:', error);
+        }
+      } else {
+        console.log('Error submitting the form!');
+      }
+    });
+  };
 </script>
 
 <template>
@@ -66,6 +71,7 @@ const submitForm = async (formEl) => {
       <el-button type="primary" @click="submitForm(ruleFormRef)">
         Submit
       </el-button>
+      <el-button @click="$router.push({ name: 'Register' })">Go to Register Page</el-button>
     </el-form-item>
   </el-form>
 </template>

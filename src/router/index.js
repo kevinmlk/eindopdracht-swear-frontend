@@ -9,6 +9,7 @@ import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Models from '../views/Models.vue';
 import Orders from '../views/Orders.vue';
+import Profile from '../views/Profile.vue'
 
 // Create router
 const router = createRouter({
@@ -48,6 +49,11 @@ const router = createRouter({
       path: '/orders',
       name: 'Orders',
       component: Orders,
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
     }
   ],
   scrollBehavior() {

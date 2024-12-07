@@ -1,6 +1,5 @@
 <script setup>
 import { reactive, ref } from 'vue';
-import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -82,10 +81,10 @@ const submitForm = async (formEl) => {
         console.log('Form submitted successfully:', data);
         // Reset form after successful submission
         resetForm(formEl);
-        let token = json.data.token;
+        let token = data.data.token;
         localStorage.setItem("token", token);
         router.push({ name: 'Account' });
-        
+
       } catch (error) {
         console.error('Error submitting the form:', error);
       }
@@ -95,12 +94,10 @@ const submitForm = async (formEl) => {
   });
 };
 
-const resetForm = (formEl) => {
-  if (!formEl) return;
-  formEl.resetFields();
-};
-
-
+// const resetForm = (formEl) => {
+//   if (!formEl) return;
+//   formEl.resetFields();
+// };
 
 </script>
 
@@ -178,7 +175,7 @@ const resetForm = (formEl) => {
       <el-button type="primary" @click="submitForm(ruleFormRef)">
         Submit
       </el-button>
-      <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
+      <el-button @click="$router.push({ name: 'Login' })">Go to Login Page</el-button>
     </el-form-item>
   </el-form>
 </template>
