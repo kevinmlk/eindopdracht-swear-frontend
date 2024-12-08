@@ -80,7 +80,7 @@ const submitForm = async (formEl) => {
         const data = await response.json();
         console.log('Form submitted successfully:', data);
         // Reset form after successful submission
-        resetForm(formEl);
+        // resetForm(formEl);
         let token = data.data.token;
         localStorage.setItem("token", token);
         router.push({ name: 'Account' });
