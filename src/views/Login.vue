@@ -34,7 +34,9 @@
           console.log('Form submitted successfully:', data);
           // Go to the account page and store the token after successful login
           let token = data.data.token;
+          let userId = data.data.user;
           localStorage.setItem("token", token);
+          localStorage.setItem("userId", userId);
           router.push({ name: 'Account' });
         } catch (error) {
           console.error('Error submitting the form:', error);

@@ -1,28 +1,15 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
-  // import jwt_decode from 'jwt-decode';
+  import { getUserID, getToken } from '../utils/auth';
+  import { ref, onMounted, reactive } from 'vue';
 
-  // Reactive property to hold user data
-  const userData = ref(null);
-
-  const getToken = () => {
-    return localStorage.getItem('token');
-  };
-
-  const getUserID = () => {
-    const token = getToken();
-    if (token) {
-      // Assuming the user ID is stored in the token as a claim with the key "sub"
-      const decodedToken = jwt_decode(token);
-      console.log(decodedToken);
-      return decodedToken.sub;
-    }
-    return null;
-  };
+  const userData = reactive({
+    values: []
+  });
 
   const getUserData = async () => {
     try {
       const userID = getUserID();
+      const token = getToken();
 
       if (!userID) {
         console.error('User ID not found');
@@ -31,39 +18,39 @@
 
       const response = await fetch(`http://localhost:3000/api/v1/users/${userID}`, {
         headers: {
-          Authorization: `Bearer ${getToken()}` // Include token in Authorization header
+          Authorization: `Bearer ${token}` // Include token in Authorization header
         }
       });
-
-      console.log(response);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
       const data = await response.json();
-      userData.value = data.data;
-      console.log(userData);
+      userData.values = data.data.user;
+      console.log(userData.values);
     } catch (error) {
       console.error(error);
     }
   };
 
-  // // Fetch user data on component mount
-  // onMounted(() => {
-  //   getUserData();
-  // });
+  // Fetch user data on component mount
+  onMounted(() => {
+    getUserData();
+  });
 </script>
 
 <template>
   <h1>Profile Settings</h1>
-  <!-- <div v-if="userData">
-    <p>Name: {{ userData.name }}</p>
-    <p>Email: {{ userData.email }}</p>
+  <h2>User id: {{ userData.values._id }} </h2>
+  
+  <div v-if="userData.values">
+    <p>Name: {{ userData.values.firstname }}</p>
+    <p>Email: {{ userData.values.email }}</p>
   </div>
   <div v-else>
     <p>Loading user data...</p>
-  </div> -->
+  </div>
 </template>
 
 <style lang="scss" scoped>
