@@ -1,6 +1,6 @@
 <script setup>
   import { getUserID } from '../utils/auth';
-  const sneakerConfigLink = "https://eindopdracht-swear-model.vercel.app/" + getUserID();
+  const sneakerConfigLink = "https://eindopdracht-swear-model.vercel.app/?id=" + getUserID();
 
 </script>
 
