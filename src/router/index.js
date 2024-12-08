@@ -11,6 +11,7 @@ import Models from '../views/Models.vue';
 import Orders from '../views/Orders.vue';
 import Profile from '../views/Profile.vue'
 import Saved from '../views/Saved.vue'
+import Cart from '../views/Cart.vue'
 
 // Create router
 const router = createRouter({
@@ -60,6 +61,11 @@ const router = createRouter({
       path: '/saved',
       name: 'Saved',
       component: Saved
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     }
   ],
   scrollBehavior() {
