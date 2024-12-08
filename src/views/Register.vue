@@ -63,7 +63,7 @@ const submitForm = async (formEl) => {
   formEl.validate(async (valid) => {
     if (valid) {
       try {
-        const response = await fetch('http://localhost:3000/api/v1/users/register', {
+        const response = await fetch('https://eindopdracht-swear-api.onrender.com/api/v1/users/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

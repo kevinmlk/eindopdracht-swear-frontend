@@ -3,9 +3,11 @@
 </script>
 
 <template>
-  <el-button>Login</el-button>
+  <!-- <img src="../assets/swear-logo-black.png" alt=""> -->
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  img {
+    bottom: 0;
+  }
 </style>

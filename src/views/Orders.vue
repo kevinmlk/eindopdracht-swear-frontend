@@ -7,7 +7,7 @@
   });
 
   onMounted(() => {
-    fetch(`http://localhost:3000/api/v1/orders/user/${getUserID()}`, {
+    fetch(`https://eindopdracht-swear-api.onrender.com/api/v1/orders/user/${getUserID()}`, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }

@@ -1,6 +1,7 @@
 <script setup>
   // Import navigation component
   import Navigation from './components/Navigation.vue'
+  import Footer from './components/Footer.vue'
 </script>
 
 <template>
@@ -12,11 +13,9 @@
       <Navigation />
     </el-header>
 
-    
-
     <!-- Start Footer -->
     <el-footer>
-
+      <Footer />
     </el-footer>
     <!-- End Footer -->
   </el-container>

@@ -16,7 +16,7 @@
         return;
       }
 
-      const response = await fetch(`http://localhost:3000/api/v1/users/${userID}`, {
+      const response = await fetch(`https://eindopdracht-swear-api.onrender.com/api/v1/users/${userID}`, {
         headers: {
           Authorization: `Bearer ${token}` // Include token in Authorization header
         }

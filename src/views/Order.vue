@@ -1,13 +1,12 @@
 <script setup>
-  import { column } from 'element-plus/es/components/table-v2/src/common.mjs';
-import { ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
   const orderValues = ref({});
 
   onMounted(async () => {
-    const response = await fetch(`http://localhost:3000/api/v1/orders/${route.params.id}`, {
+    const response = await fetch(`https://eindopdracht-swear-api.onrender.com/api/v1/orders/${route.params.id}`, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }

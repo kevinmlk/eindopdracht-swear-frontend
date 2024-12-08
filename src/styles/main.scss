@@ -9,4 +9,16 @@ body {
     font-weight: 600;
     color: black;
   }
+
+  .el-button--primary {
+    background-color: rgb(105, 255, 71);
+    border-color: rgb(105, 255, 71);
+    color: black;
+  }
+  
+  .el-button--primary:hover {
+    background-color: black;
+    border-color: black;
+    color: rgb(105, 255, 71);
+  }
 }
