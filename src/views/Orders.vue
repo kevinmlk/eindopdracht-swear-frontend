@@ -24,7 +24,7 @@
   <h1>Orders</h1>
 
   <el-row :gutter="20" v-for="(order, index) in orders.values" :key="index">
-    <el-col :span="6">
+    <el-col :span="6" @click="$router.push({ name: 'Order', params: { id: order._id } })">
       <el-card style="max-width: 480px">
         <template #header>Order status: {{ order.status }}</template>
         <img
@@ -37,5 +37,9 @@
 </template>
 
 <style lang="scss" scoped>
-
+  .el-row {
+    .el-col {
+      cursor: pointer;
+    }
+  }
 </style>

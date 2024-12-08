@@ -12,6 +12,7 @@ import Orders from '../views/Orders.vue';
 import Profile from '../views/Profile.vue'
 import Saved from '../views/Saved.vue'
 import Cart from '../views/Cart.vue'
+import Order from '../views/Order.vue'
 
 // Create router
 const router = createRouter({
@@ -66,6 +67,11 @@ const router = createRouter({
       path: '/cart',
       name: 'Cart',
       component: Cart
+    },
+    {
+      path: '/order/:id',
+      name: 'Order',
+      component: Order
     }
   ],
   scrollBehavior() {
