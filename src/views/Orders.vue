@@ -1,11 +1,13 @@
 <script setup>
   import { onMounted, reactive } from 'vue';
+  import { getUserID } from '../utils/auth';
+  
   const orders = reactive({
     values: []
   });
 
   onMounted(() => {
-    fetch('http://localhost:3000/api/v1/orders', {
+    fetch(`http://localhost:3000/api/v1/orders/user/${getUserID()}`, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }
@@ -20,12 +22,18 @@
 
 <template>
   <h1>Orders</h1>
-  <ul>
-    <!-- Iterate over orders.values instead of orders -->
-    <li v-for="(order, index) in orders.values" :key="index">
-      <strong>{{ order.status }}</strong>: {{ order._id }}
-    </li>
-  </ul>
+
+  <el-row :gutter="20" v-for="(order, index) in orders.values" :key="index">
+    <el-col :span="6">
+      <el-card style="max-width: 480px">
+        <template #header>Order status: {{ order.status }}</template>
+        <img
+          src="../assets/sneaker-thumbnail.png"
+          style="width: 100%"
+        />
+      </el-card>
+    </el-col>
+  </el-row>
 </template>
 
 <style lang="scss" scoped>
