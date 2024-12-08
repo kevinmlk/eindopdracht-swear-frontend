@@ -8,7 +8,7 @@
 <template>
   <el-row :gutter="20" >
     <el-col :span="8">
-      <a :href="sneakerConfigLink">
+      <a :href="sneakerConfigLink" target="_blank">
         <el-card style="max-width: 480px">
           <template #header>Air Rev. Nitro S Sneakers</template>
           <img
@@ -20,7 +20,7 @@
     </el-col>
 
     <el-col :span="8">
-      <a :href="sneakerConfigLink">
+      <a :href="sneakerConfigLink" target="_blank">
         <el-card style="max-width: 480px">
           <template #header>Air Revive Vegan Boots</template>
           <img
@@ -32,7 +32,7 @@
     </el-col>
 
     <el-col :span="8">
-      <a :href="sneakerConfigLink">
+      <a :href="sneakerConfigLink" target="_blank">
         <el-card style="max-width: 480px">
           <template #header>Amazon Platform Sneakers</template>
           <img
